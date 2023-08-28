@@ -78,6 +78,7 @@ export const useGrain = () => {
 
     return () => {
       window.removeEventListener("resize", reset);
+      console.log("event removed");
     };
   }, []);
 

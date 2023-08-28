@@ -1,32 +1,21 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { useGrain } from "./util/hooks/useGrain";
+// import { useGrain } from "./util/hooks/useGrain";
+import { Route, Routes } from "react-router-dom";
+import Main from "./Pages/Main";
+import SubPage1 from "./Pages/SubPage1";
+import SubPage2 from "./Pages/SubPage2";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const canvasRef = useGrain();
+  // const canvasRef = useGrain();
 
   return (
     <>
-      <div>
-        <canvas ref={canvasRef} className="noise" />
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Film grain effect!</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>Wow this is beautiful!</p>
-      </div>
-      <p className="read-the-docs">But should I apply this to my project?</p>
+      {/* <canvas ref={canvasRef} className="noise" /> */}
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/subpage1" element={<SubPage1 />} />
+        <Route path="/subpage2" element={<SubPage2 />} />
+      </Routes>
     </>
   );
 }
